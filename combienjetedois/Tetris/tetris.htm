@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<meta charset='utf-8'/>
+<link rel="stylesheet" href="content/tetris.css" />
+<head>
+	<title> Tetris </title>
+</head>
+
+<body onload='menu()' link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+	<div id='next'> </div>
+	<div id='infos'> </div>
+	<div id='nextShape'></div>
+	<div id='score'> </div>
+	<div id='menu'> </div>
+	<div id='gameBoard'></div>	<div id='gameEnd' style='text-align:center;font-size:300%;padding-top:5cm;text-decoration:none;'></div>
+	<script type='text/javascript' src='js/ListOfSquares.js'></script>
+	<script type='text/javascript' src='js/TetrominoT.js'></script>
+	<script type='text/javascript' src='js/TetrominoO.js'></script>
+	<script type='text/javascript' src='js/TetrominoI.js'></script>
+	<script type='text/javascript' src='js/TetrominoS.js'></script>
+	<script type='text/javascript' src='js/TetrominoZ.js'></script>	
+	<script type='text/javascript' src='js/TetrominoJ.js'></script>	
+	<script type='text/javascript' src='js/TetrominoL.js'></script>	
+	<script type='text/javascript' src='js/tetris.js'></script>
+	<script>
+		function menu(){
+			var a = "<button type='button' onclick='main()'>";
+			a += "<img src='content/play4.png' width='100px' height='40px'>";
+			a += "</button> <br/ >";
+			document.getElementById("menu").innerHTML = a;
+			var b = "<table border='1px'><tr><td id=htp> HOW TO PLAY <br/ > <br/ ><br/ >";
+			b += "Up arrow to rotate the shape<br/ > <br/ >";
+			b += "Down arrow to increase the speed<br/ > <br/ >";
+			b += "Left and right arrows to move the shape <br/ ><br/ >";
+			b += "</td></tr></table>";
+			document.getElementById("infos").innerHTML = b;
+		}
+
+		function main(){
+			document.getElementById("menu").innerHTML = '';	
+			document.getElementById("infos").innerHTML = '';
+			document.getElementById("nextShape").innerHTML = "<table border='1px'><tr><td id='nstd'>next Shape</td></tr><tr><td id='nstd'></td></tr></table>";
+			initArray();
+			checkKey();
+			printing();
+			nextState();
+		}
+	</script>
+</body>	
+</html>	
